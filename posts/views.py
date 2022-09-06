@@ -1,4 +1,3 @@
-from django.shortcuts import render
 from rest_framework import generics, permissions
 from social_drf.permissions import IsOwnerOrReadOnly
 from .models import Post
@@ -12,6 +11,7 @@ class PostList(generics.ListCreateAPIView):
 
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)
+
 
 class PostDetail(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = PostSerializer

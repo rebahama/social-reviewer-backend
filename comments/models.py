@@ -5,11 +5,11 @@ from posts.models import Post
 
 class Comments(models.Model):
     RATING = ((1, 'Very bad',),
-              (2, 'bad'),
-              (3, 'good'),
+              (2, 'Bad'),
+              (3, 'Good'),
               (4, 'Very good'),
-              (1, 'Extremely good'),
-    )
+              (5, 'Extremely good'),
+              )
 
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
     post = models.ForeignKey(Post, on_delete=models.CASCADE)

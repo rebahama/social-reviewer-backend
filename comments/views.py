@@ -1,3 +1,18 @@
-from django.shortcuts import render
+from rest_framework import generics, permissions
+from social_drf.permissions import IsOwnerOrReadOnly
+from .models import Comments
+from .serializer import CommentSerializer, CommentDetailSerializer
 
-# Create your views here.
+
+class CommentList(generics.ListCreateAPIView):
+    """ For comments, only authorazied user can update and delete comments"""
+    serializer_class = CommentSerializer
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    queryset = Comments.objects.all()
+
+
+
+class CommentDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Comments.objects.all()
+    serializer_class = CommentDetailSerializer
+    permission_classes = [IsOwnerOrReadOnly]
