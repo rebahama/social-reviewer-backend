@@ -5,7 +5,6 @@ from .models import Profile
 from .serializer import ProfileSerializer
 
 
-
 class ProfileList(generics.ListAPIView):
     """Retrive the profiles and set the """
     queryset = Profile.objects.all()
