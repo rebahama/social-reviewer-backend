@@ -22,13 +22,14 @@ class PostSerializer(serializers.ModelSerializer):
 
         if value.image.width > 4100:
             raise serializers.ValidationError(
-                'Warning image is to wide Image must be under 4096 pixels'
+                'Warning image is to wide Image must be under 4100 pixels'
             )
         if value.image.height > 4100:
             raise serializers.ValidationError(
-                'Warning image is to high Image must be under 4096 pixels'
+                'Warning image is to high Image must be under 4100 pixels'
             )
         return value
+
 
     class Meta:
         model = Post
