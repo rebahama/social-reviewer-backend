@@ -9,3 +9,7 @@ class CategoryList(generics.ListAPIView):
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     serializer_class = CategorySerializer
 
+class CategoryDetail(generics.RetrieveAPIView):
+    queryset = Category.objects.all()
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    serializer_class = CategorySerializer
