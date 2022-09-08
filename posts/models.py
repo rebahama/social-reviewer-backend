@@ -17,7 +17,10 @@ class Post(models.Model):
     content = models.TextField(max_length=1600, blank=False)
     price = models.PositiveIntegerField(blank=True, default=0,
     validators=[MinValueValidator(0), MaxValueValidator(1000000)])
-    category = models.ForeignKey(Category, on_delete=models.CASCADE)
+    category = models.ForeignKey(Category, related_name="posts",
+    on_delete=models.SET_NULL,
+    blank=True,
+    null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
