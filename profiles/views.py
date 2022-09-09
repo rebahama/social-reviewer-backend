@@ -8,9 +8,11 @@ from .serializer import ProfileSerializer
 
 class ProfileList(generics.ListAPIView):
     """Retrive the profiles and set the """
-    
-    queryset = Profile.objects.annotate(review_counter=Count('owner__post', distinct=True)).order_by('-created_at')
-    
+
+    queryset = Profile.objects.annotate(review_counter=Count('owner__post', distinct=True),
+    profile_like=Count('profile_likes', distinct=True)
+    ).order_by('-created_at')
+
     serializer_class = ProfileSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 

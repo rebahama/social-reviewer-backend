@@ -9,7 +9,7 @@ class PostList(generics.ListCreateAPIView):
     serializer_class = PostSerializer
     queryset = Post.objects.annotate(like_counter=Count('likes', distinct=True),
     comment_counter=Count('comments', distinct=True)).order_by('-created_at')
-    
+
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
     def perform_create(self, serializer):
