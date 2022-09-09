@@ -6,6 +6,7 @@ class ProfileSerializer(serializers.ModelSerializer):
     """ serialize the data to json"""
     owner = serializers.ReadOnlyField(source='owner.username')
     is_owner = serializers.SerializerMethodField()
+    review_counter = serializers.ReadOnlyField()
 
     def get_is_owner(self, obj):
         """ How to check for profile ownership"""
