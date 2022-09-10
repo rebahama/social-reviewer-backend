@@ -10,13 +10,18 @@ class PostList(generics.ListCreateAPIView):
     queryset = Post.objects.annotate(like_counter=Count('likes', distinct=True),
     comment_counter=Count('comments', distinct=True)).order_by('-created_at')
 
-    filter_backends = [filters.OrderingFilter]
-    ordering_filed = [
+    filter_backends = [filters.OrderingFilter, filters.SearchFilter]
+    ordering_fields = [
         'likes_counter',
-        'comment_counter'
-        
+        'comment_counter',
 
     ]
+    search_fields = [
+        'owner__username',
+        'title'
+        'content'
+    ]
+
 
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
