@@ -7,6 +7,7 @@ class PostSerializer(serializers.ModelSerializer):
     """ serialize the data to json"""
     owner = serializers.ReadOnlyField(source='owner.username')
     profile_image = serializers.ReadOnlyField(source='owner.profile.image.url')
+    category_name = serializers.ReadOnlyField(source='category.title')
     is_owner = serializers.SerializerMethodField()
     like_counter = serializers.ReadOnlyField()
     comment_counter = serializers.ReadOnlyField()
