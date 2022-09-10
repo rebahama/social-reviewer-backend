@@ -15,10 +15,16 @@ class ProfileList(generics.ListAPIView):
 
     serializer_class = ProfileSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
-    filter_backends = [filters.OrderingFilter]
-    ordering_filed = [
+    filter_backends = [filters.OrderingFilter, filters.SearchFilter]
+    ordering_fields = [
         'review_counter',
         'profile_like'
+
+    ]
+
+    search_fields = [
+        'owner__username',
+        'name'
 
     ]
 
