@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.db.models import Count
-from rest_framework import generics, permissions
+from rest_framework import generics, permissions, filters
 from social_drf.permissions import IsOwnerOrReadOnly
 from .models import Profile
 from .serializer import ProfileSerializer
@@ -15,6 +15,12 @@ class ProfileList(generics.ListAPIView):
 
     serializer_class = ProfileSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    filter_backends = [filters.OrderingFilter]
+    ordering_filed = [
+        'review_counter',
+        'profile_like'
+
+    ]
 
 
 class ProfileListDetail(generics.RetrieveUpdateAPIView):
