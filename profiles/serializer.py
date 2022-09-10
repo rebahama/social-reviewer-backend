@@ -16,7 +16,7 @@ class ProfileSerializer(serializers.ModelSerializer):
         """ How to check for profile ownership"""
         request = self.context['request']
         return request.user == obj.owner
-    
+
     def get_created_at(self, obj):
         return naturaltime(obj.created_at)
 
