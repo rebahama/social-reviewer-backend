@@ -1,4 +1,4 @@
-from rest_framework import generics, permissions
+from rest_framework import generics, permissions, filters
 from social_drf.permissions import IsOwnerOrReadOnly
 from .models import Comments
 from .serializer import CommentSerializer, CommentDetailSerializer
@@ -12,6 +12,13 @@ class CommentList(generics.ListCreateAPIView):
 
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)
+
+    filter_backends = [filters.OrderingFilter]
+    ordering_filed = [
+        'rating',
+        
+
+    ]
 
 
 class CommentDetail(generics.RetrieveUpdateDestroyAPIView):

@@ -1,5 +1,5 @@
 from django.db.models import Count
-from rest_framework import generics, permissions
+from rest_framework import generics, permissions, filters
 from social_drf.permissions import IsOwnerOrReadOnly
 from .models import Post
 from .serializer import PostSerializer
@@ -9,6 +9,14 @@ class PostList(generics.ListCreateAPIView):
     serializer_class = PostSerializer
     queryset = Post.objects.annotate(like_counter=Count('likes', distinct=True),
     comment_counter=Count('comments', distinct=True)).order_by('-created_at')
+
+    filter_backends = [filters.OrderingFilter]
+    ordering_filed = [
+        'likes_counter',
+        'comment_counter'
+        
+
+    ]
 
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
