@@ -12,7 +12,7 @@ class Profile(models.Model):
     name = models.CharField(max_length=250, blank=True)
     content = models.TextField(blank=True)
     image = models.ImageField(upload_to='images/',
-    default='../default-avatar_e6z9oo', blank=True)
+                              default='../default-avatar_e6z9oo', blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 

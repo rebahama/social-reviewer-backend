@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from profiles.models import Profile
 
+
 class ProfileLikes(models.Model):
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
     profile = models.ForeignKey(

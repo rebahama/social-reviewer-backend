@@ -17,5 +17,3 @@ class ProfileLikeDetail(generics.RetrieveDestroyAPIView):
     queryset = ProfileLikes.objects.all()
     serializer_class = ProfileLikeSerializer
     permission_classes = [IsOwnerOrReadOnly]
-
-
