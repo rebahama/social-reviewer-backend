@@ -3,6 +3,7 @@ from social_drf.permissions import IsOwnerOrReadOnly
 from likes.models import Likes
 from likes.serializer import LikeSerializer
 
+
 class LikeList(generics.ListCreateAPIView):
     serializer_class = LikeSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]

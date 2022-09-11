@@ -2,8 +2,8 @@ from django.db import IntegrityError
 from rest_framework import serializers
 from likes.models import Likes
 
+
 class LikeSerializer(serializers.ModelSerializer):
- 
     owner = serializers.ReadOnlyField(source='owner.username')
 
     class Meta:

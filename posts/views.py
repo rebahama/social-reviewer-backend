@@ -7,12 +7,14 @@ from .serializer import PostSerializer
 
 class PostList(generics.ListCreateAPIView):
     serializer_class = PostSerializer
-    queryset = Post.objects.annotate(like_counter=Count('likes', distinct=True),
-    comment_counter=Count('comments', distinct=True)).order_by('-created_at')
+    queryset = Post.objects.annotate(like_counter=Count('likes',
+                                                        distinct=True),
+                                     comment_counter=Count('comments',
+                                     distinct=True)).order_by('-created_at')
 
     filter_backends = [filters.OrderingFilter, filters.SearchFilter]
     ordering_fields = [
-        'likes_counter',
+        'like_counter',
         'comment_counter',
         'category__id',
         'price'
@@ -24,7 +26,6 @@ class PostList(generics.ListCreateAPIView):
         'content',
         'category__title'
     ]
-
 
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 

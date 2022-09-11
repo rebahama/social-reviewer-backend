@@ -16,7 +16,7 @@ class CommentList(generics.ListCreateAPIView):
     filter_backends = [filters.OrderingFilter]
     ordering_filed = [
         'rating',
-        
+
 
     ]
 
