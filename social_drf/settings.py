@@ -65,7 +65,8 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = 'DEV_CHECK' in os.environ
 
-ALLOWED_HOSTS = ['social-reviewer-backend.heroku.com', 'localhost']
+ALLOWED_HOSTS = ['social-reviewer-backend.herokuapp.com', 'localhost']
+
 
 if 'CLIENT_ORIGIN_DEV' in os.environ:
     extracted_url = re.match(r'^.+-', os.environ.get('CLIENT_ORIGIN', ''), re.IGNORECASE).group(0)
