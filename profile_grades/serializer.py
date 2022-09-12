@@ -12,6 +12,7 @@ class ProfileLikeSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
     def create(self, validated_data):
+        """ User can't like a profile twice"""
         try:
             return super().create(validated_data)
         except IntegrityError:

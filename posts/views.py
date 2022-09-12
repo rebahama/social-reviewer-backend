@@ -6,6 +6,12 @@ from .serializer import PostSerializer
 
 
 class PostList(generics.ListCreateAPIView):
+    """ User can create and update posts, the annotate
+        refeers to how many likes and comments there are in the
+        models. The filter backends make it possible to filter the data
+        based on the ordering_fileds that is passed in diffrent data.
+        The data that is passed in comes from
+        the related_name in the models. """
     serializer_class = PostSerializer
     queryset = Post.objects.annotate(like_counter=Count('likes',
                                                         distinct=True),
@@ -34,6 +40,7 @@ class PostList(generics.ListCreateAPIView):
 
 
 class PostDetail(generics.RetrieveUpdateDestroyAPIView):
+    """ Make it possible to delete a post"""
     serializer_class = PostSerializer
     queryset = Post.objects.all()
     permission_classes = [IsOwnerOrReadOnly]

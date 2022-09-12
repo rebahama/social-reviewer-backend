@@ -4,7 +4,10 @@ from .models import Post
 
 
 class PostSerializer(serializers.ModelSerializer):
-    """ serialize the data to json"""
+    """ serialize the data to json,
+        the comment counter and like counter
+        refeers to query data that has been
+        annotated in the views.py for posts"""
     owner = serializers.ReadOnlyField(source='owner.username')
     profile_image = serializers.ReadOnlyField(source='owner.profile.image.url')
     category_name = serializers.ReadOnlyField(source='category.title')
@@ -25,7 +28,8 @@ class PostSerializer(serializers.ModelSerializer):
         return naturaltime(obj.updated_at)
 
     def validate_image(self, value):
-        """ if image heigt is to big or wide to big"""
+        """ if image heigt is to big or wide
+            to big then raise the erros below"""
 
         if value.size > 1024 * 1024 * 2:
             raise serializers.ValidationError(

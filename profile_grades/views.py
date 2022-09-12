@@ -5,6 +5,7 @@ from .serializer import ProfileLikeSerializer
 
 
 class ProfileLikeList(generics.ListCreateAPIView):
+    """ Give a profile a like"""
     queryset = ProfileLikes.objects.all()
     serializer_class = ProfileLikeSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
@@ -14,6 +15,7 @@ class ProfileLikeList(generics.ListCreateAPIView):
 
 
 class ProfileLikeDetail(generics.RetrieveDestroyAPIView):
+    """ Delete a profile like  """
     queryset = ProfileLikes.objects.all()
     serializer_class = ProfileLikeSerializer
     permission_classes = [IsOwnerOrReadOnly]

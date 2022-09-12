@@ -11,6 +11,9 @@ class LikeSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
     def create(self, validated_data):
+        """ The user can't like a post twice
+            if the user likes a post twice
+            then raise the error."""
         try:
             return super().create(validated_data)
         except IntegrityError:

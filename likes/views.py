@@ -5,6 +5,7 @@ from likes.serializer import LikeSerializer
 
 
 class LikeList(generics.ListCreateAPIView):
+    """ Authorized User can update and create the likes"""
     serializer_class = LikeSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     queryset = Likes.objects.all()

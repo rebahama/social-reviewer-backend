@@ -7,6 +7,8 @@ from category.models import Category
 
 class Post(models.Model):
     """ For when user creates a post.
+    the price can't go below 0 or above 100000, if it does
+    then raise an error.
 
     """
 

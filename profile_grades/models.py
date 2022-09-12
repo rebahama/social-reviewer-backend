@@ -4,6 +4,7 @@ from profiles.models import Profile
 
 
 class ProfileLikes(models.Model):
+    """ model for showing how many likes a profile have"""
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
     profile = models.ForeignKey(
         Profile, related_name='profile_likes', on_delete=models.CASCADE

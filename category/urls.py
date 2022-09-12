@@ -1,3 +1,5 @@
+""" Creating urls for the view of category,
+    passing and integer in the second path """
 from django.urls import path
 from category import views
 

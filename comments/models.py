@@ -4,6 +4,10 @@ from posts.models import Post
 
 
 class Comments(models.Model):
+    """ Model for creating the comment, user can
+        choose a rating that is represented in a integerfield.
+        It is a integerfield so that it is possible to query the data
+        in a descending or ascending order."""
     RATING = ((1, 'Very bad',),
               (2, 'Bad'),
               (3, 'Good'),

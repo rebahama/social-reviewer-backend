@@ -6,7 +6,11 @@ from .serializer import ProfileSerializer
 
 
 class ProfileList(generics.ListAPIView):
-    """Retrive the profiles and set the """
+    """Retrive the profiles and show how many likes a profile has.
+        Users can also sort the profile based on how popular the profile
+        is with the help of a like count.
+        Users can search a profile with the help of a name
+        or profile name """
 
     queryset = Profile.objects.annotate(review_counter=Count('owner__post',
                                         distinct=True),
