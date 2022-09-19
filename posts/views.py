@@ -42,5 +42,8 @@ class PostList(generics.ListCreateAPIView):
 class PostDetail(generics.RetrieveUpdateDestroyAPIView):
     """ Make it possible to delete a post"""
     serializer_class = PostSerializer
-    queryset = Post.objects.all()
+    queryset = Post.objects.annotate(like_counter=Count('likes',
+                                                        distinct=True),
+                                     comment_counter=Count('comments',
+                                     distinct=True)).order_by('-created_at')
     permission_classes = [IsOwnerOrReadOnly]
