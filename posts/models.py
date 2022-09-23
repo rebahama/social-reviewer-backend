@@ -16,7 +16,9 @@ class Post(models.Model):
     title = models.CharField(max_length=200, unique=True, blank=False)
     image = models.ImageField(upload_to='images/',
                               default='../default-post_oi2vmt', blank=True)
-    content = models.TextField(max_length=1600, blank=False)
+    pros = models.TextField(max_length=400, blank=False, default="")
+    cons = models.TextField(max_length=400, blank=False, default="")
+    content = models.TextField(max_length=2000, blank=False)
     price = models.PositiveIntegerField(
         blank=True,
         default=0,
