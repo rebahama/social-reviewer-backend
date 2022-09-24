@@ -1,4 +1,5 @@
 from django.db.models import Count
+from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import generics, permissions, filters
 from social_drf.permissions import IsOwnerOrReadOnly
 from .models import Post
@@ -18,7 +19,9 @@ class PostList(generics.ListCreateAPIView):
                                      comment_counter=Count('comments',
                                      distinct=True)).order_by('-created_at')
 
-    filter_backends = [filters.OrderingFilter, filters.SearchFilter]
+    filter_backends = [filters.OrderingFilter, filters.SearchFilter,
+                       DjangoFilterBackend]
+
     ordering_fields = [
         'like_counter',
         'comment_counter',
@@ -31,6 +34,11 @@ class PostList(generics.ListCreateAPIView):
         'title',
         'content',
         'category__title'
+    ]
+    
+    filterset_fields = [
+        'owner__profile',
+
     ]
 
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
