@@ -1,5 +1,6 @@
 from django.db.models import Count
 from rest_framework import generics, permissions, filters
+from django_filters.rest_framework import DjangoFilterBackend
 from social_drf.permissions import IsOwnerOrReadOnly
 from .models import Profile
 from .serializer import ProfileSerializer
@@ -20,7 +21,8 @@ class ProfileList(generics.ListAPIView):
 
     serializer_class = ProfileSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
-    filter_backends = [filters.OrderingFilter, filters.SearchFilter]
+    filter_backends = [filters.OrderingFilter,
+                       filters.SearchFilter, DjangoFilterBackend]
     ordering_fields = [
         'review_counter',
         'profile_like'
@@ -30,6 +32,11 @@ class ProfileList(generics.ListAPIView):
     search_fields = [
         'owner__username',
         'name'
+
+    ]
+
+    filterset_fields = [
+        'owner__post'
 
     ]
 
