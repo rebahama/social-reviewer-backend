@@ -35,7 +35,7 @@ class PostList(generics.ListCreateAPIView):
         'content',
         'category__title'
     ]
-    
+
     filterset_fields = [
         'owner__profile',
         'owner__post',
