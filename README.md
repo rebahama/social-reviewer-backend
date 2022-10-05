@@ -1,108 +1,182 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Socialreviewer backend
+The backend for socialreviewer was build using Django and Django rest framework.
 
-Welcome rebahama,
+# Website link
+* [Deployed website](https://social-reviewer-backend.herokuapp.com/)
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+# User stories
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **September 1, 2021**
+* As a site user I would like the reviews to display how many likes and comments the review have so I know how popular the review is.
 
-## Gitpod Reminders
+* As a user I would like to be able to search after a specfic review that is avalible throughout the site.
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+* As a user I woul like to be able to like a review if I find it appealing.
 
-`python3 -m http.server`
+* As a user I would like to be able to sort the reviews based on popularity and price.
 
-A blue button should appear to click: _Make Public_,
+* As a site user I would like to be able to have an own account.
 
-Another blue button should appear to click: _Open Browser_.
+* As a site user I would like to upload a picture together with my review post.
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+* As a siteuser I would like the site to categorise the reviews in diffrent subjects so that it's easy to find.
 
-A blue button should appear to click: _Make Public_,
+* As a siteuser, I want to be able to review from 0 to 5 about the other user that has created the review.
 
-Another blue button should appear to click: _Open Browser_.
+* As a user I can comment on a review post and also delete my own comment.
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+* As a user I can create,edit and delete reviews.
 
-To log into the Heroku toolbelt CLI:
+# Features
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+## Create review
+User can create a review with the fields below and the post will be displayed
+![posts](docs/posts.png)
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
+## Detailed post
+User can fetch a post by id number and if the user is a owner the user will be able to edit and delete that post
+![posts detail](docs/post-detail.png)
 
-------
+# Category
+Only admin can create a category, the categories have been created by admin.
 
-## Release History
+![category](docs/category.png)
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+# Comments
+Comments can be created on the posts, if the current user is the owner of the comment, then it is possible to delete the comment.
 
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
+![comments](docs/comments.png)
 
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
+# Likes
+Likes can be added to a post only if the user have an account, only one like per post is allowed on every post.
 
-**July 2 2021:** Remove extensions that are not available in Open VSX.
+![Likes](docs/likes.png)
 
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
+# Profiles
+When a user creates an account then it will be displayed here in the profile list, if the id of that profile is inputed in the url and if the current user is the owner of the profile then it will be possible to edit the information displayed.
 
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
+![Profiles](docs/profile.png)
 
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
+# Profile grades
+This is the same as the like but the user will be able to like a profile on the list.
 
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
+# Filters
+This is where the user will be able to serach after a reveiw with the keywords of: title, username and category. The user will also be able to sort the data depending on the information choosen from the picture below. User will also be able to only display the posts created by a particular profile choosen in the field with the help of the filter setting.
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
+![Filters](docs/filters.png)
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
+# Technology
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
+* Django 3.2 was used for the backend.
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
+* Cloudinary was used as a host to store the pictures.
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
+* Pillow was used for image proccess.
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
+* Django rest framework was used for serializing the data.
 
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
+* Django filter was used to filter posts based on certain conditions.
 
-------
+* Django rest auth was used for authentication.
 
-## FAQ about the uptime script
+* Django allauth was used for user registration.
 
-**Why have you added this script?**
+* Django rest framework simplejwt was used for the account tokens.
 
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
+* Heroku was used for deployment.
 
-**How will this affect me?**
+* Github was used for develompment.
 
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
 
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
+# Libraries and deployment
 
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
 
-**So….?**
+## Libraries
+Before deploying the project the following packages need to be installed:
 
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
+1. pip3 install  "django<4" 
 
-**Can I opt out?**
+2. pip3 install cloudinary-storage
 
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
+3. pip3 install Pillow
 
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
+4. pip3 install djangorestframework
 
-**Anything more?**
+5. pip3 install dj-rest-auth
 
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
+6. pip3 install django-filter 
 
----
+7. pip3 install "dj-rest-auth[with_social]"
 
-Happy coding!
+8. pip3 install djangorestframework-simplejwt
+
+9. pip3 install django-allauth
+
+10. pip3 install dj_database_url==0.5.0 psycopg2
+
+11. pip3 install gunicorn
+
+12. pip3 install django-cors-headers
+
+13. pip3 freeze > requirements.txt
+
+14. Create a Procfile in the main directory of the project and inside add the following line:
+release: python manage.py makemigrations && python manage.py migrate
+web: gunicorn social_drf.wsgi
+
+# Deployment
+
+1. Go to Heroku and create a new app.
+
+2. After creating a new app, go to "resources" and type " Heroky postgres" and add it.
+
+3. Go to settings and scroll down to "config vars" and a DATABASE_URL will be created for the database.
+
+4. Create a config var named CLOUDINARY_URL and paste in the api key from Cloudinary.
+
+5. Create a config var named SECRET_KEY and paste in a password.
+
+6. Add DISABLE_COLLECTSTATIC and set it to 1.
+
+7. Connect your Heroku with Github and click finally click deploy.
+
+# Access enviorment variables
+
+To access enviorment table type:
+
+1. SECRET_KEY = os.environ.get['SECRET_KEY']
+
+2. CLOUDINARY_URL = os.environ['CLOUDINARY_URL']
+
+3. DEV_CHECK = os.environ['DEV_CHECK']
+
+4. import dj_database_url and os at the top.
+
+# Develop in local enviorment
+
+1. Create a python file called env.py and import os
+
+2. Add : os.environ["DATABASE_URL"] = value from heroku
+
+3. Add os.environ["SECRET_KEY"] = value from heroku
+
+4. Add os.environ["DEV_CHECK"] = '1'
+
+5. Type python3 manage.py runserver to start up the browser.
+
+# Connect your API to a frontend project
+
+1. Go to Heroku and select your deployed REST API backend project.
+
+2. Go to setting and select Reveal config vars.
+
+3. Add: CLIENT_ORGIN = your deployed frontend projects url.
+
+4. Add: CLIENT_ORGIN_DEV = your frontend gitpod preview link.
+
+5. Dont forget to remove the trailing slash at the end of the url links.
+
+6. Every couple of weeks, Gitpod will update the preview url. As a result, you will need to reconnect your Heroku DRF API Project to your Gitpod preview URL
+
+# Validation of files
+
+1. All the py files have been validated with this tool [pep8 validator](http://pep8online.com/). Only error that is found is on line 
