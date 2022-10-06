@@ -43,4 +43,4 @@ Because I finished the most important userstories in sprint number 1, I had only
 ![agile](docs/agile/agile-3.png)
 
 # Conclusion
-All the userstories was completed before the time was due on the sprints, I added more userstories to the first sprint because I hade time to spare. 
+All the userstories was completed before the time was due on the sprints, I added more userstories to the first sprint because I hade time to spare. And could start working on the userstories for the frontend. This time I also added testing and code validation to the userstories because in the last project I underestimated how long it would take to complete the testing and validation of code.
