@@ -193,4 +193,3 @@ Testing the API can be found here: [Testing](https://github.com/rebahama/social-
 
 * The official Django rest framework website was used [DRF](https://www.django-rest-framework.org/)
 
-Click here to go back to the first [README](https://github.com/rebahama/social-reviewer-backend/blob/main/README.md)
