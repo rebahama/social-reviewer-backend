@@ -1,5 +1,5 @@
 # Manual Testing
-## Testing the userstories on the API.
+## Testing the user stories on the API.
 
 * As a site user I would like the reviews to display how many likes and comments the review have so I know how popular the review is.
 
@@ -92,8 +92,13 @@ If a user tries to edit or delete another posts that have been created by anothe
 All the comments, posts and profiles can be displayed and shown in the API.
 
 
+
 # Bugs
 When I tried to display the relevant comments to the relevant posts the comments would not show up. I had installed the Django filter and used it in the views.py file. Later when I installed it I could finally see the relevant comments to the posts.
 
 
+# Validation of files
 
+1. All the py files have been validated with this tool [pep8 validator](http://pep8online.com/). Only error "line too long" is found is on line 164, I tried to make it shorter but the Django progam would stop working so I let it be.
+
+Click here to go back to the first [README](https://github.com/rebahama/social-reviewer-backend/blob/main/README.md)

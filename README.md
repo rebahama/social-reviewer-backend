@@ -184,4 +184,13 @@ To access enviorment variable  type in the settings.py:
 File for agile approach can be found here: [Agile](https://github.com/rebahama/social-reviewer-backend/blob/main/AGILE.md).
 
 # Testing
-Testing the API can be found here: [testig](https://github.com/rebahama/social-reviewer-backend/blob/main/TESTING.md).
+Testing the API can be found here: [Testing](https://github.com/rebahama/social-reviewer-backend/blob/main/TESTING.MD).
+
+
+# Credits
+
+* Inspiration and help to get started was taken from the Code institute DRF walkthrough video.
+
+* The official Django rest framework website was used [DRF](https://www.django-rest-framework.org/)
+
+Click here to go back to the first [README](https://github.com/rebahama/social-reviewer-backend/blob/main/README.md)
