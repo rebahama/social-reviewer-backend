@@ -179,11 +179,9 @@ To access enviorment variable  type in the settings.py:
 
 6. Every couple of weeks, Gitpod will update the preview url. As a result, you will need to reconnect your Heroku DRF API Project to your Gitpod preview URL
 
-# Validation of files
-
-1. All the py files have been validated with this tool [pep8 validator](http://pep8online.com/). Only error that is found is on line
 
 # Agile
-File for agile approach can be found here [Agile](https://github.com/rebahama/social-reviewer-backend/blob/main/AGILE.md).
+File for agile approach can be found here: [Agile](https://github.com/rebahama/social-reviewer-backend/blob/main/AGILE.md).
 
 # Testing
+Testing the API can be found here: [testig](https://github.com/rebahama/social-reviewer-backend/blob/main/TESTING.md).
