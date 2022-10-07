@@ -1,6 +1,7 @@
 from django.contrib.humanize.templatetags.humanize import naturaltime
 from rest_framework import serializers
 from .models import Post
+from likes.models import Likes
 
 
 class PostSerializer(serializers.ModelSerializer):
@@ -12,6 +13,7 @@ class PostSerializer(serializers.ModelSerializer):
     profile_image = serializers.ReadOnlyField(source='owner.profile.image.url')
     category_name = serializers.ReadOnlyField(source='category.title')
     is_owner = serializers.SerializerMethodField()
+    likes_id = serializers.SerializerMethodField()
     like_counter = serializers.ReadOnlyField()
     comment_counter = serializers.ReadOnlyField()
     created_at = serializers.SerializerMethodField()
@@ -20,6 +22,15 @@ class PostSerializer(serializers.ModelSerializer):
     def get_is_owner(self, obj):
         request = self.context['request']
         return request.user == obj.owner
+
+    def get_likes_id(self, obj):
+        user = self.context['request'].user
+        if user.is_authenticated:
+            like = Likes.objects.filter(
+                owner=user, post=obj
+            ).first()
+            return like.id if like else None
+        return None
 
     def get_created_at(self, obj):
         return naturaltime(obj.created_at)

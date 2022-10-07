@@ -10,7 +10,7 @@ The backend for socialreviewer was build using Django and Django rest framework.
 
 * As a user I would like to be able to search after a specfic review that is avalible throughout the site.
 
-* As a user I woul like to be able to like a review if I find it appealing.
+* As a user I would like to be able to like a review if I find it appealing.
 
 * As a user I would like to be able to sort the reviews based on popularity and price.
 
@@ -137,11 +137,11 @@ web: gunicorn social_drf.wsgi
 
 6. Add DISABLE_COLLECTSTATIC and set it to 1.
 
-7. Connect your Heroku with Github and click finally click deploy.
+7. Connect your Heroku with Github and finally click deploy.
 
 # Access enviorment variables
 
-To access enviorment table type:
+To access enviorment variable  type in the settings.py:
 
 1. SECRET_KEY = os.environ.get['SECRET_KEY']
 
@@ -150,6 +150,8 @@ To access enviorment table type:
 3. DEV_CHECK = os.environ['DEV_CHECK']
 
 4. import dj_database_url and os at the top.
+
+
 
 # Develop in local enviorment
 
@@ -180,3 +182,8 @@ To access enviorment table type:
 # Validation of files
 
 1. All the py files have been validated with this tool [pep8 validator](http://pep8online.com/). Only error that is found is on line
+
+# Agile
+File for agile approach can be found here [Agile](https://github.com/rebahama/social-reviewer-backend/blob/main/AGILE.md).
+
+# Testing
