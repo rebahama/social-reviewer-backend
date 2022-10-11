@@ -1,5 +1,7 @@
 # Socialreviewer backend
-The backend for socialreviewer was build using Django and Django rest framework.
+The backend for socialreviewer was build using Django and Django rest framework. This api will make it possible to Create/delete/edit a post and also
+like and comment on a post. Register and create an account, search after content and  make the post categorised. I will also be possible to sort the posts based on
+diffrent conditions of choice.
 
 # Website link
 * [Deployed website](https://social-reviewer-backend.herokuapp.com/)
@@ -207,7 +209,9 @@ To access enviorment variable  type in the settings.py:
 
 5. Dont forget to remove the trailing slash at the end of the url links.
 
-6. Every couple of weeks, Gitpod will update the preview url. As a result, you will need to reconnect your Heroku DRF API Project to your Gitpod preview URL
+6. Click on this [file](https://github.com/rebahama/social-reviewer-frontend/blob/main/src/api/axios.js). And add the following line: axios.defaults.baseURL = "https://social-reviewer-backend.herokuapp.com/"; 
+
+7. Every couple of weeks, Gitpod will update the preview url. As a result, you will need to reconnect your Heroku DRF API Project to your Gitpod preview URL
 
 
 # Agile
@@ -219,7 +223,7 @@ Testing the API can be found here: [Testing](https://github.com/rebahama/social-
 
 # Credits
 
-* Inspiration and help to get started was taken from the Code institute DRF walkthrough video.
+* Inspiration and help to get started was taken from the Code institute DRF walkthrough video. [CodeinsitueDrf](https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+DRF+2021_T1/courseware/f775d54df4da44d18309888b3fe884f7/bc5fbada70104d489aa0363a03d8bda8/)
 
 * The official Django rest framework website was used [DRF](https://www.django-rest-framework.org/)
 
