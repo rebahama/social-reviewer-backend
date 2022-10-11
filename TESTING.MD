@@ -94,7 +94,9 @@ All the comments, posts and profiles can be displayed and shown in the API.
 
 
 # Bugs
-When I tried to display the relevant comments to the relevant posts the comments would not show up. I had installed the Django filter and used it in the views.py file. Later when I installed it I could finally see the relevant comments to the posts.
+* When I tried to display the relevant comments to the relevant posts the comments would not show up. I had installed the Django filter and used it in the views.py file. Later when I installed it I could finally see the relevant comments to the posts.
+
+* In the admin page of the live deployed version the css files are not loading, I choose to not focus on that problem for now as it is an API json response.
 
 
 # Validation of files
