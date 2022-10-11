@@ -27,6 +27,7 @@ The backend for socialreviewer was build using Django and Django rest framework.
 * As a user I can create,edit and delete reviews.
 
 
+
 # Database diagrams
 
 The database is used together with the Django framework, the software is called: PostgresSql and it is a relational database. There is 6 diffrent models and all wil be displayed below:
